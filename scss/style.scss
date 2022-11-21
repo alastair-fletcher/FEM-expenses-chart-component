@@ -1,0 +1,161 @@
+$Soft-red: hsl(10, 79%, 65%);
+$Cyan: hsl(186, 34%, 60%);
+$Dark-brown: hsl(25, 47%, 15%);
+$Medium-brown: hsl(28, 10%, 53%);
+$Very-pale-orange: hsl(27, 66%, 92%);
+$Cream: hsl(33, 100%, 98%);
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  align-items: center;
+  background-color: $Very-pale-orange;
+  display: flex;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+main {
+  .balance-section,
+  .spending-section {
+    border-radius: 20px;
+    display: flex;
+    margin-bottom: 1em;
+    max-width: 400px;
+    padding: 1.5em;
+
+    h1 {
+      font-size: 22px;
+    }
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .balance-section {
+    background-color: $Soft-red;
+    justify-content: space-between;
+
+    .balance-section-text {
+      color: $Cream;
+    }
+
+    img {
+      width: 50px;
+    }
+  }
+
+  .spending-section {
+    background-color: $Cream;
+    color: $Dark-brown;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .bar-graph {
+      display: flex;
+      height: 12em;
+      justify-content: space-between;
+      margin-bottom: 1.5em;
+
+      .day-spends {
+        align-items: center;
+        color: $Medium-brown;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        margin-right: 0.9em;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        .total-spent-day {
+          background-color: $Dark-brown;
+          border-radius: 4px;
+          color: $Cream;
+          font-size: 12px;
+          margin-bottom: 0.5em;
+          padding: 0.5em 0.3em;
+          text-align: center;
+          width: 50px;
+        }
+
+        .bar {
+          background-color: $Soft-red;
+          border-radius: 4px;
+          display: inline-block;
+          position: relative;
+          width: 35px;
+        }
+
+        .bar .total-spent-day {
+          bottom: 100%;
+          left: 50%;
+          margin-left: -25px;
+          position: absolute;
+          visibility: hidden;
+          z-index: 1;
+        }
+
+        .bar:hover .total-spent-day {
+          visibility: visible;
+        }
+
+        .bar:hover {
+          cursor: pointer;
+          filter: brightness(130%);
+        }
+
+        .day {
+          margin-top: 0.5em;
+        }
+
+        .current-day {
+          background-color: $Cyan;
+        }
+      }
+    }
+
+    hr {
+      background-color: $Very-pale-orange;
+      border: none;
+      height: 1px;
+    }
+
+    .total-section {
+      color: $Medium-brown;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1.5em;
+
+      .total-month,
+      .percentage {
+        display: flex;
+        flex-direction: column;
+
+        span {
+          font-size: 14px;
+        }
+
+        .bold {
+          color: $Dark-brown;
+          font-weight: 700;
+        }
+        #total-spent {
+          font-size: 2.25em;
+        }
+      }
+      .percentage {
+        align-items: flex-end;
+        align-self: flex-end;
+      }
+    }
+  }
+}
