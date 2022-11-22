@@ -16,55 +16,61 @@ body {
   background-color: $Very-pale-orange;
   display: flex;
   font-family: 'DM Sans', sans-serif;
+  font-size: 18px;
   font-weight: 400;
   justify-content: center;
   min-height: 100vh;
 }
 
 main {
-  .balance-section,
-  .spending-section {
-    border-radius: 20px;
+  .header,
+  .container {
+    background-color: $Soft-red;
+    border-radius: 15px;
+    color: $Cream;
     display: flex;
+    justify-content: space-between;
     margin-bottom: 1em;
-    max-width: 400px;
     padding: 1.5em;
 
-    h1 {
-      font-size: 22px;
-    }
+    .header__balance {
+      display: flex;
+      flex-direction: column;
 
-    span {
-      font-size: 12px;
-    }
-  }
-
-  .balance-section {
-    background-color: $Soft-red;
-    justify-content: space-between;
-
-    .balance-section-text {
-      color: $Cream;
+      .header__balance--amount {
+        font-size: 1.4em;
+        font-weight: 700;
+        margin-top: 0.25em;
+      }
     }
 
     img {
-      width: 50px;
+      width: 3.5em;
+    }
+
+    span {
+      font-size: 0.75em;
     }
   }
 
-  .spending-section {
+  .container {
     background-color: $Cream;
     color: $Dark-brown;
     flex-direction: column;
-    justify-content: space-between;
+    padding: 2em;
 
-    .bar-graph {
+    .title {
+      font-size: 1.5em;
+      font-weight: 700;
+    }
+
+    .chart {
       display: flex;
-      height: 12em;
+      height: 11em;
       justify-content: space-between;
       margin-bottom: 1.5em;
 
-      .day-spends {
+      .chart__data {
         align-items: center;
         color: $Medium-brown;
         display: flex;
@@ -76,48 +82,44 @@ main {
           margin-right: 0;
         }
 
-        .total-spent-day {
-          background-color: $Dark-brown;
-          border-radius: 4px;
-          color: $Cream;
-          font-size: 12px;
-          margin-bottom: 0.5em;
-          padding: 0.5em 0.3em;
-          text-align: center;
-          width: 50px;
-        }
-
-        .bar {
+        .chart__data--bar {
           background-color: $Soft-red;
           border-radius: 4px;
           display: inline-block;
           position: relative;
-          width: 35px;
+          width: 42px;
         }
 
-        .bar .total-spent-day {
-          bottom: 100%;
-          left: 50%;
-          margin-left: -25px;
-          position: absolute;
-          visibility: hidden;
-          z-index: 1;
-        }
-
-        .bar:hover .total-spent-day {
-          visibility: visible;
-        }
-
-        .bar:hover {
+        .chart__data--bar:hover {
           cursor: pointer;
           filter: brightness(130%);
         }
 
-        .day {
+        .chart__data--bar .chart__data--tooltip {
+          background-color: $Dark-brown;
+          border-radius: 4px;
+          bottom: 100%;
+          color: $Cream;
+          left: 50%;
+          margin-bottom: 0.5em;
+          margin-left: -30px;
+          padding: 0.5em 0.3em;
+          position: absolute;
+          text-align: center;
+          visibility: hidden;
+          width: 60px;
+          z-index: 1;
+        }
+
+        .chart__data--bar:hover .chart__data--tooltip {
+          visibility: visible;
+        }
+
+        .chart__data--day {
           margin-top: 0.5em;
         }
 
-        .current-day {
+        .chart__data--today {
           background-color: $Cyan;
         }
       }
@@ -126,33 +128,34 @@ main {
     hr {
       background-color: $Very-pale-orange;
       border: none;
-      height: 1px;
+      height: 2px;
     }
 
-    .total-section {
+    .total {
       color: $Medium-brown;
       display: flex;
       justify-content: space-between;
       margin-top: 1.5em;
 
-      .total-month,
-      .percentage {
+      .total__thismonth,
+      .total__lastmonth {
         display: flex;
         flex-direction: column;
 
         span {
-          font-size: 14px;
+          font-size: 0.85em;
         }
 
         .bold {
           color: $Dark-brown;
           font-weight: 700;
         }
-        #total-spent {
+
+        .total-spent {
           font-size: 2.25em;
         }
       }
-      .percentage {
+      .total__lastmonth {
         align-items: flex-end;
         align-self: flex-end;
       }

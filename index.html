@@ -21,24 +21,26 @@
   </head>
   <body>
     <main>
-      <div class="balance-section">
-        <div class="balance-section-text">
+      <div class="header">
+        <div class="header__balance">
           <span>My balance</span>
-          <h1>$921.48</h1>
+          <span class="header__balance--amount">$921.48</span>
         </div>
         <img src="/images/logo.svg" alt="logo" />
       </div>
 
-      <div class="spending-section">
-        <h1>Spending - Last 7 days</h1>
-        <div class="bar-graph"></div>
+      <div class="container">
+        <span class="title">Spending - Last 7 days</span>
+
+        <div class="chart"></div>
         <hr />
-        <div class="total-section">
-          <div class="total-month">
+
+        <div class="total">
+          <div class="total__thismonth">
             <span>Total this month</span>
-            <span class="bold" id="total-spent">$478.33</span>
+            <span class="bold total-spent">$478.33</span>
           </div>
-          <div class="percentage">
+          <div class="total__lastmonth">
             <span class="bold">+2.4%</span>
             <span>from last month</span>
           </div>
