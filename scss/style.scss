@@ -161,4 +161,15 @@ main {
       }
     }
   }
+
+  @media only screen and (max-width: 600px) {
+    .header,
+    .container {
+      padding: 2em 1em;
+
+      .chart {
+        height: 14em;
+      }
+    }
+  }
 }
